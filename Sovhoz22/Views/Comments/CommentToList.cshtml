@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Sovhoz22.Models.CommentModels.CommentModel>
+    
+    @foreach (var c in Model)
+    {
+        <div class="text-centre">
+            <p>@c.UserName  (@c.Rating/10) @c.Time</p>
+            <p>@c.Text</p>
+        </div>
+        <br />
+    }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Sovhoz22.Models.PhoneModels.Phone>
+@{
+    ViewData["Title"] = "Список смартфонов";
+
+}
+
+<div style="margin-right:75%">
+    <div class="sidenav">
+        <form method="post">
+            <div class="text-center">
+                <div class="form-group">
+                    <h4>Цена:</h4>
+                    <input type="radio" value="desc" id="ByPrice" name="ByPrice" />
+                    <span>По убыванию</span><br />
+                    <input type="radio" value="asc" id="ByPrice" name="ByPrice" />
+                    <span>По возрастанию</span>
+                </div>
+                <div class="form-group">
+                    <h4>Название:</h4>
+                    <input type="radio" value="NonAlph" id="ByModel" name="ByModel" />
+                    <span>Z-A</span><br />
+                    <input type="radio" value="Alph" id="ByModel" name="ByModel" />
+                    <span>A-Z</span>
+                </div>
+                <div>
+                    <input type="submit" value="Сортировать" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    <div style="margin-left:25%">
+        <table class="table">
+            @foreach (var phone in Model)
+            {
+            <tr>
+                <td></td>
+                <td>
+                    @if (phone.PhoneImage != null)
+                    {
+                        <img class="img-rounded" src="data:image/jpeg;base64,@(Convert.ToBase64String(phone.PhoneImage))" />
+                    }
+                </td>
+                <td><div class="text-center"><h3><a href="~/Home/PhoneInfo/@phone.Id/">@phone.Company</a></h3></div></td>
+                <td><div class="text-center"><h3><a href="~/Home/PhoneInfo/@phone.Id/">@phone.Name</a></h3></div></td>
+                <td><div class="text-center"><a href="~/Home/Buy/@phone.Id" class="btn btn-success">@phone.Price<br /> Купить</a></div></td>
+            </tr>
+            }
+         </table>
+    </div>

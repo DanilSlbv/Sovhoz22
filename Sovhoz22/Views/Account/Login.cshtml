@@ -1,0 +1,23 @@
+﻿@model Sovhoz22.Models.UserModels.LoginViewModel
+@{ 
+    ViewData["Title"] = "Login";
+}
+
+<h2>Страница Входа</h2>
+<form asp-action="LogIn" asp-controller="Account">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div >
+        <input type="submit" value="Войти" class="btn btn-default"/>
+    </div>
+</form>

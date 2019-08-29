@@ -1,0 +1,27 @@
+﻿@model  Sovhoz22.Models.PhoneModels.EditPhoneViewModel
+
+@{ 
+    ViewData["Title"] = "Редактируем";
+}
+
+<h2>Редактирование</h2>
+<form asp-action="EditPhone" asp-controller="Home" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Company">Компания</label>
+        <input asp-for="Company" class="form-control" value="@ViewBag.Company" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Модель</label>
+        <input asp-for="Name" class="form-control" value="@ViewBag.Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Цена</label>
+        <input asp-for="Price" class="form-control" value="@ViewBag.Price" />
+    </div>
+    <div class="form-group">
+        <input name="PhoneImage" type="file" class="form-control" />
+    </div>
+    <div>
+        <input type="submit" value="Изменить" class="btn btn-default" />
+    </div>
+</form>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Sovhoz22.Models.PhoneModels.Phone>
+<table class="table">
+        @foreach (var phone in Model)
+        {
+            <tr>
+                <td></td>
+                <td><div class="text-center"><h3>@phone.Company</h3></div></td>
+                <td><div class="text-center"><h3>@phone.Name</h3></div></td>
+                <td><div class="text-center"><a href="~/Home/EditPhone/@phone.Id" class="btn btn-primary">Изменить</a></div></td>
+                <td>
+                   
+                    <form asp-controller="Home" asp-action="DeletePhone" asp-route-id="@phone.Id">
+                        <div class="text-center"><button type="submit" class="btn btn-danger">Удалить</button></div>
+                    </form>
+                   
+                </td>
+            </tr>
+        }
+</table>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Купить";
+}
+
+
+        <h3>Форма оформления покупки</h3>   
+        <p>Для оформления покупки заполните следующие поля:</p>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.PhoneId" name="PhoneId" />
+            <div class="form-group">
+                <p>Имя:</p>
+                <input type="text" name="User" class="form-control" />
+            </div>
+            <div class="form-group">
+                <p>Адрес:</p>
+                <input type="text" name="Address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <p>Телефон:</p>
+                <input type="text" name="ContactPhone" class="form-control" />
+            </div>
+            <div>
+                <input type="submit" value="Отправить" class="btn btn-success"/>
+            </div>
+        </form>

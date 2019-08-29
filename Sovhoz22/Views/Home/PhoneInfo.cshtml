@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<Sovhoz22.Models.CommentModels.CommentModel>
+
+@{
+    ViewData["Title"] = ViewBag.Name;
+}
+
+<div class="text-centre">
+    <h2>@ViewBag.Company </h2>
+    <h3>@ViewBag.Name</h3>
+   
+</div>
+<br />
+
+<form method="post">
+    <div style="margin-left:25%">
+        <div style="margin-right:50%">
+            <p>Оцените(0-10)</p>
+            <input type="number" Name="Rating" class="form-control" />
+        </div>
+        <input type="hidden" Name="UserName" value="@User.Identity.Name" />
+        <input type="hidden" Name="Phone" value="@ViewBag.Id" />
+        <p>Комментарий</p>
+        <input type="text" Name="Text" class="form-control" />
+        <div>
+            <input type="submit" value="Отправить" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+<br />
+@foreach(var comment in Model)
+{
+    <p>@comment.UserName - @comment.Time  (@comment.Rating/10)</p>
+    <p>@comment.Text</p>
+    <br />
+}
